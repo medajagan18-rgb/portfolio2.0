@@ -1,7 +1,27 @@
-// 1. Initialize Supabase (Replace these with your actual keys from Supabase Settings > API)
+// 1. Initialize Supabase
 const _supabaseUrl = 'https://jvtxqtutnmijltcmrvaa.supabase.co';
 const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dHhxdHV0bm1pamx0Y21ydmFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTMyNzQsImV4cCI6MjA4OTkyOTI3NH0.nDsGjCzXQTkmhwO7H-8HxteAeQ9C0lM2-N3Ri-OeJkc';
-const supabase = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
+
+// Fixed initialization (using the global supabase object from the CDN)
+const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
+
+// --- ADDED: The specific sendMessage function you requested ---
+async function sendMessage(userNameInput, messageInput) {
+    const { data, error } = await supabaseClient
+        .from('messages') 
+        .insert([
+            { 
+                sender_name: userNameInput, 
+                content: messageInput       
+            },
+        ]);
+
+    if (error) {
+        console.error('Error sending message:', error.message);
+    } else {
+        alert('Message sent successfully!');
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -27,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = contactForm.querySelector('textarea').value;
 
             // Insert data into your 'contact_entries' SQL table
-            const { data, error } = await supabase
+            const { data, error } = await supabaseClient
                 .from('contact_entries')
                 .insert([{ name, email, message }]);
 
