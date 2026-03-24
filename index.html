@@ -4,13 +4,14 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Jagan | Dev Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">DevPortfolio</div>
+            <div class="logo">Dev<span>Portfolio</span></div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -22,35 +23,58 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm Jagan <span class="highlight">Jagan</span></h1>
+            <h1>Hi, I'm <span class="highlight">Jagan</span></h1>
             <p>Data Analytics Enthusiast & Python Developer</p>
-            <a href="#projects" class="btn">View My Work</a>
+            <div class="hero-btns">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Let's Talk</a>
+            </div>
         </div>
     </section>
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>I am a college student passionate about turning data into insights and building sleek web applications. Currently focused on mastering Python and SQL.</p>
+        <div class="section-container">
+            <h2>About Me</h2>
+            <p>I am a college student passionate about turning data into insights and building sleek web applications. Currently focused on mastering Python and SQL to build data-driven solutions.</p>
+        </div>
     </section>
 
     <section id="projects">
         <h2>Recent Projects</h2>
         <div class="project-grid">
-            <div class="card">Data Literacy Dashboard</div>
-            <div class="card">Python Automation Tool</div>
-            <div class="card">CSS Interactive UI</div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=500')"></div>
+                <h3>Data Literacy Dashboard</h3>
+                <p>Statistical visualization using Python and SQL.</p>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=500')"></div>
+                <h3>Python Automation</h3>
+                <p>Scripts to streamline repetitive data tasks.</p>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=500')"></div>
+                <h3>Interactive UI</h3>
+                <p>Modern frontend design with smooth CSS animations.</p>
+            </div>
         </div>
     </section>
 
     <section id="contact">
         <h2>Get In Touch</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+        <div class="contact-container">
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="5"></textarea>
+                <button type="submit" class="btn" id="submit-btn">Send Message</button>
+            </form>
+        </div>
     </section>
+
+    <footer>
+        <p>&copy; 2026 Jagan. Built with Supabase & Vercel.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
