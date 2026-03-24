@@ -1,31 +1,13 @@
-// 1. Initialize Supabase
+// 1. Initialize Supabase 
 const _supabaseUrl = 'https://jvtxqtutnmijltcmrvaa.supabase.co';
 const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dHhxdHV0bm1pamx0Y21ydmFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTMyNzQsImV4cCI6MjA4OTkyOTI3NH0.nDsGjCzXQTkmhwO7H-8HxteAeQ9C0lM2-N3Ri-OeJkc';
 
-// Fixed initialization (using the global supabase object from the CDN)
-const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
-
-// --- ADDED: The specific sendMessage function you requested ---
-async function sendMessage(userNameInput, messageInput) {
-    const { data, error } = await supabaseClient
-        .from('messages') 
-        .insert([
-            { 
-                sender_name: userNameInput, 
-                content: messageInput       
-            },
-        ]);
-
-    if (error) {
-        console.error('Error sending message:', error.message);
-    } else {
-        alert('Message sent successfully!');
-    }
-}
+// Changed variable name to 'db' to avoid conflict with the 'supabase' library object
+const db = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- KEEP: Smooth Scrolling Logic ---
+    // --- Smooth Scrolling Logic ---
     const links = document.querySelectorAll('nav ul li a');
     links.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -35,33 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- NEW: Supabase Form Submission ---
+    // --- Supabase Form Submission ---
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Get values from the form
+            // Get values from the form inputs
             const name = contactForm.querySelector('input[type="text"]').value;
             const email = contactForm.querySelector('input[type="email"]').value;
             const message = contactForm.querySelector('textarea').value;
 
-            // Insert data into your 'contact_entries' SQL table
-            const { data, error } = await supabaseClient
+            // INSERT SNIPPET START
+            const { data, error } = await db
                 .from('contact_entries')
-                .insert([{ name, email, message }]);
+                .insert([{ 
+                    name: name, 
+                    email: email, 
+                    message: message 
+                }]);
+            // INSERT SNIPPET END
 
             if (error) {
-                console.error('Error:', error);
-                alert('Submission failed. Check console for details.');
+                console.error('Error:', error.message);
+                alert('Submission failed: ' + error.message);
             } else {
-                alert('Success! Your message is now saved in the SQL database.');
-                contactForm.reset();
+                alert('Success! Your message is now saved.');
+                contactForm.reset(); // Clears the form
             }
         });
     }
 
-    // --- KEEP: Scroll Reveal Animations ---
+    // --- Scroll Reveal Animations ---
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
