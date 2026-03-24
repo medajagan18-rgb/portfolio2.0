@@ -46,7 +46,7 @@ nav ul li a:hover { color: var(--primary); }
 h1 { font-size: 3.5rem; margin-bottom: 10px; }
 .highlight { color: var(--primary); text-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
 
-/* FIXED BUTTON CONGESTION */
+/* --- Fixed Button Spacing --- */
 .hero-btns {
     display: flex;
     justify-content: center;
@@ -62,9 +62,10 @@ h1 { font-size: 3.5rem; margin-bottom: 10px; }
     border-radius: 50px;
     font-weight: 600;
     border: 2px solid var(--primary);
-    transition: 0.4s;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     min-width: 160px;
+    display: inline-block;
 }
 
 .btn-outline { background: transparent; color: var(--primary); }
@@ -77,9 +78,23 @@ h1 { font-size: 3.5rem; margin-bottom: 10px; }
     box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
 }
 
+/* --- About Me Styling --- */
 section { padding: 100px 10%; }
 
-/* PROJECT CARDS */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #ddd;
+    line-height: 1.8;
+}
+
+/* --- Project Grid --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -99,7 +114,7 @@ section { padding: 100px 10%; }
 .card-body { padding: 20px; }
 .card h3 { color: var(--primary); margin-bottom: 10px; }
 
-/* FORM */
+/* --- Contact Form --- */
 form { max-width: 600px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 15px; }
 input, textarea {
     width: 100%; padding: 12px; margin-bottom: 20px;
@@ -107,7 +122,7 @@ input, textarea {
     color: white; border-radius: 8px;
 }
 
-/* ANIMATION CLASSES */
+/* --- Animations --- */
 .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease-out; }
 .visible { opacity: 1; transform: translateY(0); }
 
