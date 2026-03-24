@@ -4,9 +4,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jagan | Dev Portfolio</title>
+    <title>Jagan | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -44,36 +44,40 @@
         <div class="project-grid">
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=500')"></div>
-                <h3>Data Literacy Dashboard</h3>
-                <p>Statistical visualization using Python and SQL.</p>
+                <div class="card-body">
+                    <h3>Data Analytics</h3>
+                    <p>Statistical visualization and data modeling using Python.</p>
+                </div>
             </div>
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=500')"></div>
-                <h3>Python Automation</h3>
-                <p>Scripts to streamline repetitive data tasks.</p>
+                <div class="card-body">
+                    <h3>Python Automation</h3>
+                    <p>Custom scripts to streamline complex workflows.</p>
+                </div>
             </div>
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=500')"></div>
-                <h3>Interactive UI</h3>
-                <p>Modern frontend design with smooth CSS animations.</p>
+                <div class="card-body">
+                    <h3>Interactive UI</h3>
+                    <p>Modern web interfaces with a focus on UX/UI.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
         <h2>Get In Touch</h2>
-        <div class="contact-container">
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" rows="5"></textarea>
-                <button type="submit" class="btn" id="submit-btn">Send Message</button>
-            </form>
-        </div>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="5"></textarea>
+            <button type="submit" class="btn" id="submit-btn">Send Message</button>
+        </form>
     </section>
 
     <footer>
-        <p>&copy; 2026 Jagan. Built with Supabase & Vercel.</p>
+        <p>&copy; 2026 Jagan. Powered by Supabase.</p>
     </footer>
 
     <script src="script.js"></script>
