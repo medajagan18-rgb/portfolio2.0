@@ -1,6 +1,6 @@
 // 1. Initialize Supabase (Replace these with your actual keys from Supabase Settings > API)
-const _supabaseUrl = 'https://your-project-url.supabase.co';
-const _supabaseAnonKey = 'your-anon-public-key';
+const _supabaseUrl = 'https://jvtxqtutnmijltcmrvaa.supabase.co';
+const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dHhxdHV0bm1pamx0Y21ydmFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQzNTMyNzQsImV4cCI6MjA4OTkyOTI3NH0.nDsGjCzXQTkmhwO7H-8HxteAeQ9C0lM2-N3Ri-OeJkc';
 const supabase = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
 
 document.addEventListener('DOMContentLoaded', () => {
